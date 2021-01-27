@@ -1,11 +1,14 @@
+package data;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class readCSV {
+public class CSVReader {
+
     private List<List<String>> records;
 
-    public readCSV() {
+    public CSVReader() {
         records = new ArrayList<>();
         try {
             java.io.BufferedReader FileReader =                      //ein Reader um die Datei Zeilenweise auszulesen
@@ -26,7 +29,7 @@ public class readCSV {
                 records.add(getRecordFromLine(split[0]));
 
                 i++;
-                 System.out.println(i);
+                System.out.println(i);
 
 
             }
@@ -47,13 +50,4 @@ public class readCSV {
         }
         return values;
     }
-
-    public static void main(String[] args) {
-        new readCSVTime();
-    }
-
-
 }
-
-
-
