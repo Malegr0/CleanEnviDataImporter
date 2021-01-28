@@ -7,4 +7,4 @@ Sie wird für das Projekt CleanEnvi benötigt und soll den Datenimport verschnel
 Anpassungen nicht direkt übernommen werden. Des Weiteren wird ein entsprechender Webservice für
 Verarbeitung der Daten benötigt. Dieser wird über dieses Projekt nicht zur Verfügung gestellt.
 
-Gegebenenfalls ich eine spätere Verallgemwinerung der Software möglich.
+Gegebenenfalls ist eine spätere Verallgemwinerung der Software möglich.
