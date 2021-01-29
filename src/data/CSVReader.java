@@ -16,7 +16,7 @@ public class CSVReader {
             java.io.BufferedReader FileReader =                      //ein Reader um die Datei Zeilenweise auszulesen
                     new java.io.BufferedReader(
                             new java.io.FileReader(
-                                    new java.io.File("C:\\Users\\chris\\Documents\\SWE2\\TestCSV\\en.openfoodfacts.org.products.csv") //TODO change to variable path
+                                    new java.io.File(Main.path)
                             )
                     );
 
@@ -43,7 +43,7 @@ public class CSVReader {
     }
 
     private List<String> getRecordFromLine(String line) {
-        List<String> values = new ArrayList<String>();
+        List<String> values = new ArrayList<>();
         try (Scanner rowScanner = new Scanner(line)) {
             rowScanner.useDelimiter("\t");
             while (rowScanner.hasNext()) {
