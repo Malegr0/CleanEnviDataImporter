@@ -1,5 +1,7 @@
 # CleanEnviDataImporter
 
+Entwicklungsversion: Java 14.0.1
+
 Dieses Projekt ist eine Software zur Vereinfachung von Datenimports per Webserver an eine Datenbank.
 Sie wird für das Projekt CleanEnvi benötigt und soll den Datenimport verschnellern und vereinfachen.
 
