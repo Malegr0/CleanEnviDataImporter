@@ -37,26 +37,20 @@ public class CSVReader {
 
                 i++;
                 System.out.println(i);
-                //while (j!=6){
 
-                /*Ausgabe[0] = records.get(0).get(0); //EAN
-                Ausgabe[1] = records.get(0).get(0); // Name
-                Ausgabe[2] = records.get(0).get(0);// ImageURL
-                Ausgabe[3] = records.get(0).get(0);// Packaging
-                Ausgabe[4] = records.get(0).get(0);// Brand*/
-                //Ausgabe[5]= records.get(0).get(2);
-                // j++;
-                //}
 
                 Ausgabe = getValuesFromString(records);
 
-                if (i == 6) {
+                //if (records.get(0).get(0).equals("")) {
+                    records.remove(0);
+                //}
+                /*if (i == 6) {
                     break;
-                }
+                }*/
             }
-            System.out.print("record1= " + records.get(0).get(1));
+           // System.out.print("record1= " + records.get(0).get(1));
 
-            for (int k = 0; k < 5; k++) {
+            for (int k = 0; k < 6; k++) {
                 System.out.println("Ausgabe= " + Ausgabe[k]);
             }
             //System.out.print("Ausgabe= " + Ausgabe);
@@ -78,15 +72,16 @@ public class CSVReader {
     }
 
     private static String[] getValuesFromString (List<List<String>> records) {
-        String[] Ausgabe = new String[5];
+        String[] Ausgabe = new String[6];
 
-        Ausgabe[0] = records.get(0).get(0); //NAME
-        Ausgabe[1] = records.get(0).get(0); // EAN
-        Ausgabe[2] = records.get(0).get(0);// ImageURL
-        Ausgabe[3] = records.get(0).get(0);// Packaging
-        Ausgabe[4] = records.get(0).get(0);// Brand
+        Ausgabe[0] = records.get(0).get(0); // EAN
+        Ausgabe[1] = records.get(0).get(7); // Name
+        Ausgabe[2] = records.get(0).get(66); // ImageURL
+        Ausgabe[3] = records.get(0).get(11); // Packaging
+        Ausgabe[4] = records.get(0).get(13); // Brand
+        Ausgabe[5] = "7";
 
-        for (int k = 0; k < 5; k++) {
+        for (int k = 0; k < 6; k++) {
             System.out.println("Ausgabe= " + Ausgabe[k]);
         }
 
