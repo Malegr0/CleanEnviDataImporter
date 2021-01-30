@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//TODO refactor to only public functions without constuctor
-
-
 public class CSVReader {
 
-    private static List<List<String>> records; //TODO change to List<String>
+    private static List<List<String>> records;
 
 
     public CSVReader() {
@@ -24,36 +21,22 @@ public class CSVReader {
 
             String zeile = "";
 
-            //TODO change output to single line
             String[] Ausgabe = new String[5];
 
             int i = 0, j = 0;
             while (null != (zeile = FileReader.readLine())) {         //lesen jeder Zeile
-                String[] split = zeile.split("\n");                //hier wird die Zeile zerlegt als Trennzeichen ;
-                // System.out.print(split[0]);                     //erste index 0
-                // System.out.println(" --> ");
+                String[] split = zeile.split("\n");                //hier wird die Zeile zerlegt als Trennzeichen
 
                 records.add(getRecordFromLine(split[0]));
-
                 i++;
                 System.out.println(i);
-
-
                 Ausgabe = getValuesFromString(records);
-
-                //if (records.get(0).get(0).equals("")) {
-                    records.remove(0);
-                //}
-                /*if (i == 6) {
-                    break;
-                }*/
+                records.remove(0);
             }
-           // System.out.print("record1= " + records.get(0).get(1));
 
             for (int k = 0; k < 6; k++) {
                 System.out.println("Ausgabe= " + Ausgabe[k]);
             }
-            //System.out.print("Ausgabe= " + Ausgabe);
         } catch (Exception e) {
             e.printStackTrace();
         }
