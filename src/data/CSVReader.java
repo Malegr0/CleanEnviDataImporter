@@ -22,21 +22,30 @@ public class CSVReader {
             String zeile = "";
 
             String[] Ausgabe = new String[5];
-
-            int i = 0, j = 0;
+            int i=0, value = 0;
+            //TODO erste Zeile muss übersprungen werden, da dies die Spaltennamen sind
             while (null != (zeile = FileReader.readLine())) {         //lesen jeder Zeile
                 String[] split = zeile.split("\n");                //hier wird die Zeile zerlegt als Trennzeichen
 
                 records.add(getRecordFromLine(split[0]));
-                i++;
-                System.out.println(i);
                 Ausgabe = getValuesFromString(records);
+
+                //Senden der Daten an Datenbank
+                URLCreator.sendPostRequest(Main.address, Ausgabe);
+                System.out.println(i);
+
+                if(i>=value+1000) {
+                    Thread.sleep(5000);
+                    value=value+1000;
+                }
+
                 records.remove(0);
+                i++;
+                if(i>=100000) {
+                    break;
+                }
             }
 
-            for (int k = 0; k < 6; k++) {
-                System.out.println("Ausgabe= " + Ausgabe[k]);
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,9 +73,12 @@ public class CSVReader {
         Ausgabe[4] = records.get(0).get(13); // Brand
         Ausgabe[5] = "7";
 
+        //Ausgabe der Daten
+        /*
         for (int k = 0; k < 6; k++) {
             System.out.println("Ausgabe= " + Ausgabe[k]);
         }
+        */
 
         return Ausgabe;
     }
