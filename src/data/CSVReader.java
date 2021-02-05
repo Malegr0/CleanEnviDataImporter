@@ -36,7 +36,7 @@ public class CSVReader {
 
                 records.remove(0);
                 i++;
-                if(i>=10000) {
+                if(i>=100000) {
                     break;
                 }
             }

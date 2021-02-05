@@ -51,7 +51,8 @@ public class URLCreator {
         }
 
         if(http.getResponseCode() == 400) {
-            System.out.println(values[0] + " " + values[1] + " " + values[2] + " " + values[3] + " " + values[4] + " " + values[5]);
+            //System.out.println(values[0] + " " + values[1] + " " + values[2] + " " + values[3] + " " + values[4] + " " + values[5]);
+            CSVWriter.addLine(values);
         }
 
         //Closing connection
