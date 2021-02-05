@@ -2,10 +2,7 @@ package data;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
+import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +10,7 @@ import java.util.StringJoiner;
 
 public class URLCreator {
 
-    public static void sendPostRequest(String address, String[] values) throws IOException {
+    public static void sendPostRequest(String address, String[] values) throws IOException, InterruptedException {
         //Setting up the connection
         URL url = new URL(address);
         URLConnection con = url.openConnection();
@@ -39,7 +36,16 @@ public class URLCreator {
         //Sending data
         http.setFixedLengthStreamingMode(length);
         http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-        http.connect();
+        boolean connect = true;
+        while(connect) {
+            try {
+                http.connect();
+                connect = false;
+            } catch (BindException e) {
+                Thread.sleep(5000);
+            }
+        }
+
         try(OutputStream os = http.getOutputStream()) {
             os.write(out);
         }
