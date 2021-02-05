@@ -34,14 +34,9 @@ public class CSVReader {
                 URLCreator.sendPostRequest(Main.address, Ausgabe);
                 System.out.println(i);
 
-                if(i>=value+1000) {
-                    Thread.sleep(5000);
-                    value=value+1000;
-                }
-
                 records.remove(0);
                 i++;
-                if(i>=100000) {
+                if(i>=10000) {
                     break;
                 }
             }

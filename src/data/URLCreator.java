@@ -50,6 +50,10 @@ public class URLCreator {
             os.write(out);
         }
 
+        if(http.getResponseCode() == 400) {
+            System.out.println(values[0] + " " + values[1] + " " + values[2] + " " + values[3] + " " + values[4] + " " + values[5]);
+        }
+
         //Closing connection
         http.disconnect();
     }
