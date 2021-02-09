@@ -1,4 +1,4 @@
-# CleanEnviDataImporter
+# CleanEnviDataImporter (Produktdaten)
 
 Entwicklungsversion: Java 14.0.1
 
